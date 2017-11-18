@@ -2945,6 +2945,8 @@ function printMethod(path, options, print) {
     key = concat(["[", key, "]"]);
   }
 
+  key = concat([key, " "]);
+
   parts.push(
     key,
     concat(
@@ -3299,7 +3301,7 @@ function printFunctionDeclaration(path, print, options) {
     parts.push("*");
   }
   if (n.id) {
-    parts.push(" ", path.call(print, "id"));
+    parts.push(" ", path.call(print, "id"), " ");
   }
 
   parts.push(
@@ -3342,6 +3344,8 @@ function printObjectMethod(path, options, print) {
   } else {
     parts.push(key);
   }
+
+  parts.push(" ");
 
   parts.push(
     printFunctionTypeParameters(path, options, print),
